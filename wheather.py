@@ -1,6 +1,7 @@
 import requests
 import bs4 as bs
 import pandas as pd
+import csv
 
 req=requests.get('https://forecast.weather.gov/MapClick.php?x=133&y=65&site=mfr&zmx=&zmy=&map_x=133&map_y=65#.XkuaaSgzbIU')
 soup=bs.BeautifulSoup(req.content,'html.parser')
@@ -14,3 +15,6 @@ weekframe=pd.DataFrame({
     'short':short
     })
 print(weekframe)
+weekframe.to_csv('wheather.csv')
+
+
